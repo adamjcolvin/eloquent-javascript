@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw a Rotated Rectangle</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.rotate(45 * Math.PI / 180);
+    ctx.fillStyle = '#FF0000';
+    ctx.fillRect(-50, -25, 50, 50);
+    ctx.resetTransform();
+  </script>
+</body>
+</html​>

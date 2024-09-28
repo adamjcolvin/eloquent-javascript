@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draw a Spiral</title>
+  </head>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="400"
+      height="400"
+      style="border: 1px solid #000000"
+    ></canvas>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+
+      // Variables for spiral
+      const numSegments = 100; // Number of straight line segments
+      const angleStep = 0.3; // Angle increment per step (in radians)
+      const radiusStep = 0.8; // Increase in radius per step
+
+      let angle = 0;
+      let radius = 0;
+
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+
+      for (let i = 0; i < numSegments; i++) {
+        // Calculate the next point in polar coordinates
+        radius += radiusStep;
+        angle += angleStep;
+
+        // Convert polar coordinates to Cartesian
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        // Draw a line to the new point
+        ctx.lineTo(x, y);
+      }
+
+      // Stroke the spiral to render it
+      ctx.strokeStyle = "#FF0000"; // Set the line color to red
+      ctx.stroke();
+    </script>
+  </body>
+</html>

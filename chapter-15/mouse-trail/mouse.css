@@ -1,0 +1,7 @@
+.trail {
+  width: 6px;
+  height: 6px;
+  background-color: blue;
+  border-radius: 3px;
+  position: absolute;
+}

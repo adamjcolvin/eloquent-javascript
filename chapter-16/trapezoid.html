@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draw a Trapezoid</title>
+  </head>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="400"
+      height="400"
+      style="border: 1px solid #000000"
+    ></canvas>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      ctx.beginPath();
+      ctx.moveTo(100, 200);
+      ctx.lineTo(300, 200);
+      ctx.lineTo(250, 100);
+      ctx.lineTo(150, 100);
+      ctx.closePath();
+
+      ctx.fillStyle = "blue";
+      ctx.fill();
+      ctx.strokeStyle = "#000000";
+      ctx.stroke();
+    </script>
+  </body>
+</html>

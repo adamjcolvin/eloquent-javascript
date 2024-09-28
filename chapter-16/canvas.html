@@ -1,0 +1,44 @@
+<p>Normal HTML here.</p>
+<svg xmlns="http://www.w3.org/2000/svg">
+  <circle r="50" cx="50" cy="50" fill="red" />
+  <rect x="120" y="5" width="90" height="90" stroke="blue" fill="none" />
+</svg>
+
+<p>Before canvas.</p>
+<canvas width="120" height="60"></canvas>
+<p>After canvas.</p>
+<script>
+  let canvas = document.querySelector("canvas");
+  let context = canvas.getContext("2d");
+  context.fillStyle = "red";
+  context.fillRect(10, 10, 100, 50);
+</script>
+
+<canvas class="curve"></canvas>
+<script>
+  let cx = document.querySelector(".curve").getContext("2d");
+  cx.beginPath();
+  cx.moveTo(10, 90); // control=(60,10) goal=(90,90)
+  cx.quadraticCurveTo(60, 10, 90, 90);
+  cx.lineTo(60, 10);
+  cx.closePath();
+  cx.stroke();
+</script>
+
+<canvas class="fractal" width="600" height="300"></canvas>
+<script>
+  cx = document.querySelector(".fractal").getContext("2d");
+  function branch(length, angle, scale) {
+    cx.fillRect(0, 0, 1, length);
+    if (length < 8) return;
+    cx.save();
+    cx.translate(0, length);
+    cx.rotate(-angle);
+    branch(length * scale, angle, scale);
+    cx.rotate(2 * angle);
+    branch(length * scale, angle, scale);
+    cx.restore();
+  }
+  cx.translate(300, 0);
+  branch(60, 0.5, 0.8);
+</script>
